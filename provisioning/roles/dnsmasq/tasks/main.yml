@@ -9,6 +9,8 @@
 
 - name: Put dnsmasq config
   copy: src=etc/dnsmasq.conf dest=/etc/dnsmasq.conf
+  notify:
+    - restart dnsmasq
 
 - name: Put /pxe/pxelinux.cfg/default
   copy: src=pxe/ dest=/pxe
