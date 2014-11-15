@@ -1,0 +1,11 @@
+- name: OMG LAZY HACK, load module for nat
+  command: modprobe iptable_nat
+
+- name: OMG LAZY HACK, enable ip fowarding
+  command: echo 1 > /proc/sys/net/ipv4/ip_forward
+
+- name: OMG LAZY HACK, setup iptables
+  command: "{{item}}"
+  with_items:
+    - iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    - iptables -A FORWARD -i eth2 -j ACCEPT
