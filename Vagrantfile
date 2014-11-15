@@ -3,7 +3,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.define "master" do |master|
     master.vm.network "public_network"
-    master.vm.network "private_network", ip: "192.168.2.1"
+    master.vm.network "private_network", ip: "192.168.2.2"
     master.vm.hostname = "master"
 
     master.vm.provision "ansible" do |ansible|
