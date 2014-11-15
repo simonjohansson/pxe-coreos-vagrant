@@ -16,9 +16,8 @@
 - name: Put pxelinux.0 in pxe folder
   command: cp /usr/lib/syslinux/pxelinux.0 /pxe
 
-
 - name: Get http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe.vmlinuz
-  get_url: url=http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe.vmlinuz dest=/pxe
+  get_url: url=http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe.vmlinuz dest=/pxe/coreos_production_pxe.vmlinuz
 
 - name: Get http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe_image.cpio.gz
-  get_url: url=http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe_image.cpio.gz dest=/pxe
+  get_url: url=http://alpha.release.core-os.net/amd64-usr/current/coreos_production_pxe_image.cpio.gz dest=/pxe/coreos_production_pxe_image.cpio.gz
