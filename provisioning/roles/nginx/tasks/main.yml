@@ -1,0 +1,7 @@
+- name: Install nginx
+  apt: name=nginx
+
+- name: Put /pxe/pxelinux.cfg/default
+  copy: src=usr/share/nginx/html/pxe-cloud-config.yml/ dest=/usr/share/nginx/html
+  notify:
+    - restart nginx

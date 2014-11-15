@@ -7,4 +7,4 @@ display boot.msg
 label coreos
   menu default
   kernel coreos_production_pxe.vmlinuz
-  append initrd=coreos_production_pxe_image.cpio.gz cloud-config-url=http://example.com/pxe-cloud-config.yml
+  append initrd=coreos_production_pxe_image.cpio.gz cloud-config-url=http://192.168.2.2/pxe-cloud-config.yml
