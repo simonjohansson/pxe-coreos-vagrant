@@ -6,10 +6,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if Vagrant.has_plugin?("vagrant-cachier")
       master.cache.scope = :box
     end
+
+    master_ip = "192.168.2.2"
     master.vm.box = "ubuntu/trusty64"
-    master.vm.network "public_network"
-    master.vm.network "private_network", ip: "192.168.2.2"
+    master.vm.network "public_network", :adapter=>1, auto_config: false
+    master.vm.network "private_network", ip: master_ip, auto_config: false
     master.vm.hostname = "master"
+
+    master.ssh.host = master_ip
 
     master.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisioning/site.yml"
