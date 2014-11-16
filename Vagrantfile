@@ -1,7 +1,9 @@
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
+
+  # My gateway, dhcp, pxe machine
   config.vm.define "master" do |master|
+    master.vm.box = "ubuntu/trusty64"
     master.vm.network "public_network"
     master.vm.network "private_network", ip: "192.168.2.2"
     master.vm.hostname = "master"
