@@ -17,7 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  [["192.168.2.3", "0800278E158A"]].each do |ip, mac|
+  [["192.168.2.3", "0800278E158A"],
+   ["192.168.2.4", "0800278E158B"],
+   ["192.168.2.5", "0800278E158C"]].each do |ip, mac|
     config.vm.define "slave" do |slave|
       # Use a image designed for pxe boot.
       slave.vm.box = "steigr/pxe"
