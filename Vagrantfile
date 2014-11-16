@@ -3,6 +3,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # My gateway, dhcp, pxe machine
   config.vm.define "master" do |master|
+    if Vagrant.has_plugin?("vagrant-cachier")
+      master.cache.scope = :box
+    end
     master.vm.box = "ubuntu/trusty64"
     master.vm.network "public_network"
     master.vm.network "private_network", ip: "192.168.2.2"
