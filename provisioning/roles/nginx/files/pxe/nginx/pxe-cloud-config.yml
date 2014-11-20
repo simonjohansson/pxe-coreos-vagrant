@@ -1,7 +1,7 @@
 #cloud-config
 coreos:
   fleet:
-    etcd_servers: "http://192.168.2.3:4001"
+    etcd_servers: "http://192.168.2.3:4001,http://192.168.2.4:4001,http://192.168.2.5:4001"
   units:
     - name: format-sda.service
       command: start
