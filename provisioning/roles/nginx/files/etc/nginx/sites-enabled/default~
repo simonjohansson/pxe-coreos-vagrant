@@ -1,0 +1,9 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+	root /pxe/nginx
+	server_name localhost;
+	location / {
+		try_files $uri.$client $uri/ =404;
+	}
+}

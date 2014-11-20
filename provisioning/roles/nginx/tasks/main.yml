@@ -1,7 +1,18 @@
 - name: Install nginx
   apt: name=nginx
 
-- name: Put /pxe/pxelinux.cfg/default
-  copy: src=usr/share/nginx/html/pxe-cloud-config.yml/ dest=/usr/share/nginx/html
+- name: put nginx conf
+  copy: src=etc/nginx/nginx.conf dest=/etc/nginx/nginx.conf
   notify:
     - restart nginx
+
+- name: put default site.
+  copy: src=etc/nginx/sites-enabled/default dest=/etc/nginx/sites-enabled/default
+  notify:
+    - restart nginx
+
+- name: Put etcd cloud config.
+  copy: src=pxe/nginx/pxe-cloud-config.yml.etcd1 dest=/pxe/nginx/cloud-config.yml.etcd1
+
+- name: Put normal cloud config.
+  copy: src=pxe/nginx/pxe-cloud-config.yml dest=/pxe/nginx/cloud-config.yml
