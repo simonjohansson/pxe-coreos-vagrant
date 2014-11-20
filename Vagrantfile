@@ -21,7 +21,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  [["192.168.2.3", "0800278E158A"]].collect.each_with_index do |data, index|
+  [["192.168.2.3", "0800278E158A"],
+   ["192.168.2.4", "0800278E158B"],
+   ["192.168.2.5", "0800278E158C"]].collect.each_with_index do |data, index|
     config.vm.define "etcd#{index}" do |slave|
       ip = data[0]
       mac = data[1]
