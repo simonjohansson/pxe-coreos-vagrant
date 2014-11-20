@@ -3,7 +3,6 @@ coreos:
   etcd:
     addr: 192.168.2.3:4001
     peer-addr: 192.168.2.3:7001
-    peers: "http://192.168.2.3:7001, http://192.168.2.4:7001, http://192.168.2.5:7001"
   units:
     - name: etcd.service
       command: start

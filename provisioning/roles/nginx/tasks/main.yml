@@ -11,8 +11,14 @@
   notify:
     - restart nginx
 
-- name: Put etcd cloud config.
+- name: Put etcd1 cloud config.
   copy: src=pxe/nginx/pxe-cloud-config.yml.etcd1 dest=/pxe/nginx/cloud-config.yml.etcd1
+
+- name: Put etcd2 cloud config.
+  copy: src=pxe/nginx/pxe-cloud-config.yml.etcd2 dest=/pxe/nginx/cloud-config.yml.etcd2
+
+- name: Put etcd3 cloud config.
+  copy: src=pxe/nginx/pxe-cloud-config.yml.etcd3 dest=/pxe/nginx/cloud-config.yml.etcd3
 
 - name: Put normal cloud config.
   copy: src=pxe/nginx/pxe-cloud-config.yml dest=/pxe/nginx/cloud-config.yml
